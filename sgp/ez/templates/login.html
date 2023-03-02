@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>
+            login
+        </title>
+    </head>
+    <body>
+
+        <div>
+            <style>
+                h5{
+                    color:green;
+                }
+            </style>
+            {% for m in messages %}
+                <h4 style="color:red;">{{m}}</h4>
+            {% endfor %}
+        </div>
+
+
+        <form action="" method="POST">{% csrf_token %}
+            <lable>Username:</lable>
+            <input type="text" name="username"><br>
+            <lable>Password:</lable>
+            <input type="password" name="password"><br>
+            <input type="submit">
+        </form>
+
+
+        <p>Don't have an account  <a href="/signup">Create here</a></p>
+    </body>
+<html>
