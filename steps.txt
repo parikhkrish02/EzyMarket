@@ -1,0 +1,10 @@
+clone repo
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+
+pip install requirements.txt
+npm install
+npm run start
+
