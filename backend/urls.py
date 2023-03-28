@@ -13,5 +13,8 @@ urlpatterns = [
     # custom
     path("api/profile/<str:username>/", views.userProfile, name="userProfile"),
     path("api/businesses-near-me/", views.allBusiness, name="allBusiness"),
+    path("api/business/updateItem/<str:itemId>/", views.updateQuantity, name="updateQuantity"),
     path("api/business/<str:businessNameSlug>/", views.buisnessView, name="buisnessView"),
+    path("api/business/<str:businessNameSlug>/", views.buisnessView, name="buisnessView"),
+    path("api/business/<str:businessNameSlug>/toggleActive/", views.toggleActive, name="buisnessView"),
 ]

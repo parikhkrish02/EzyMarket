@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import AuthContext from '../context/Auth/AuthContext';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
@@ -16,7 +16,7 @@ const SignUp = () => {
         const password = e.target.password.value;
         const confirm_password = e.target.confirm_password.value;
 
-        if (username == '' || email == '' || password == '' || confirm_password == '') {
+        if (username === '' || email === '' || password === '' || confirm_password === '') {
             toast.warn('Details Missing', {
                 position: "top-right",
                 autoClose: 4000,
@@ -48,7 +48,6 @@ const SignUp = () => {
                 body: JSON.stringify({ username: username, email: email, password: password })
             })
             if (response.status === 200) {
-                let data = await response.json()
                 afterSignUp(username, password)
                 navigate("/")
             } else {

@@ -40,7 +40,7 @@ def getRoutes(request):
         {
             "Endpoint": "/api/token/",
             "method": "POST",
-            "body": None,
+            "body": "refresh token",
             "description": "response with auth token",
         },
         {
@@ -48,6 +48,24 @@ def getRoutes(request):
             "method": "POST",
             "body": None,
             "description": "set up a new user",
+        },
+        {
+            "Endpoint": "/api/businesses-near-me/",
+            "method": "GET",
+            "body": None,
+            "description": "return all business",
+        },
+        {
+            "Endpoint": "/api//",
+            "method": "GET",
+            "body": None,
+            "description": "set up a new business",
+        },
+        {
+            "Endpoint": "/api/api/business/<str:businessNameSlug>/",
+            "method": "GET",
+            "body": None,
+            "description": "response with a single business data",
         },
     ]
     return Response(routes)
@@ -106,7 +124,9 @@ def userProfile(request, username):
 def allBusiness(request):
     if request.method == "GET":
         business_near_by = Profile.objects.all().exclude(isBusiness=None)
-        serialized_business_near_by = UserProfileSerializer(business_near_by, many=True).data
+        serialized_business_near_by = UserProfileSerializer(
+            business_near_by, many=True
+        ).data
 
         return Response(serialized_business_near_by)
 
@@ -123,3 +143,51 @@ def buisnessView(request, businessNameSlug):
 
         else:
             return Response("No such Business Exists !!", status=400)
+
+
+@api_view(["GET"])
+def toggleActive(request, businessNameSlug):
+    if request.method == "GET":
+        if Business.objects.filter(businessNameSlug=businessNameSlug).exists():
+            business = Business.objects.get(businessNameSlug=businessNameSlug)
+            business.isActive = not (business.isActive)
+            business.save()
+
+            return Response("Toggled Business")
+
+        else:
+            return Response("No such Business Exists !!", status=400)
+
+
+@api_view(["POST"])
+def updateQuantity(request, itemId):
+    if request.method == "POST":
+        data = request.data
+        reqType = data["type"]
+
+        if Item.objects.filter(id=itemId).exists():
+            if reqType == "incr":
+                item = Item.objects.get(id=itemId)
+                item.quantity = item.quantity + 1
+                item.save()
+
+                return Response("Item Incremented")
+
+            elif reqType == "decr":
+                item = Item.objects.get(id=itemId)
+                item.quantity = item.quantity - 1
+                item.save()
+
+                return Response("Item Decremented")
+
+            elif reqType == "change":
+                item = Item.objects.get(id=itemId)
+                if not (data.quantity == 0):
+                    item.quantity = data["quantity"]
+                item.save()
+
+            else:
+                return Response("No such type exists")
+
+        else:
+            return Response("No such Item Exists !!", status=400)

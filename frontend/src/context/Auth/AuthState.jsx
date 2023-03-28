@@ -19,7 +19,7 @@ const NoteState = ({ children }) => {
             },
             body: JSON.stringify({ 'username': e.target.username.value, 'password': e.target.password.value }),
         }).catch((err) => {
-            console.log(err.name);
+            alert(err.name);
         })
         let data = await response.json()
         if (response.status === 200) {
