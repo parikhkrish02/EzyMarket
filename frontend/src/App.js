@@ -3,15 +3,19 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import PageNotFound from './components/PageNotFound';
 import UserProfilePage from './components/UserProfilePage';
-import NewBusiness from './pages/NewBusiness';
+import Business from './pages/Business';
 import SignUp from './components/SignUp';
 import AuthState from './context/Auth/AuthState';
 import UserProfileState from './context/UserProfile/UserProfileState';
 import Home from './pages/Home';
+import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import ProtectedRoute from './utils/ProtectedRoute';
 import BusinessView from './pages/BusinessView';
 import BusinessNearMe from './pages/BusinessNearMe';
+import AboutUs from './components/AboutUs';
+import WelcomeCards from './components/WelcomeCards';
+import ContactUs from './components/ContactUs';
 
 const App = () => {
     return (
@@ -19,23 +23,32 @@ const App = () => {
             <AuthState>
                 <Router>
                     <UserProfileState>
-                        <Navbar />
 
                         <Routes>
+                            <Route path='/' element={<Navbar />} >
 
-                            <Route element={<ProtectedRoute />}>
-                                <Route path='/' element={<Home />} />
-                                <Route path='/profile/:username' element={<UserProfilePage />} />
+                                <Route element={<Home />}>
+                                    <Route index element={<WelcomeCards />} />
+                                    <Route path='aboutUs' element={<AboutUs />} />
+                                    <Route path='contactUs' element={<ContactUs />} />
+                                </Route>
 
-                                <Route path='/newBusiness' element={<NewBusiness />} />
+                                <Route element={<ProtectedRoute />}>
+
+                                    <Route path='/landing-page' element={<LandingPage />} />
+
+                                    <Route path='/profile/:username' element={<UserProfilePage />} />
+
+                                    <Route path='/business' element={<Business />} />
+                                    <Route path='/business/:businessNameSlug' element={<BusinessView />} />
+                                </Route>
+
                                 <Route path='/business-near-by' element={<BusinessNearMe />} />
-                                <Route path='/business/:businessNameSlug' element={<BusinessView />} />
+                                <Route exact path="/login" element={<Login />} />
+                                <Route exact path="/signUp" element={<SignUp />} />
+                                <Route path="*" element={<PageNotFound />} />
+
                             </Route>
-
-                            <Route exact path="/login" element={<Login />} />
-                            <Route exact path="/signUp" element={<SignUp />} />
-                            <Route path="*" element={<PageNotFound />} />
-
                         </Routes>
                     </UserProfileState>
                 </Router>

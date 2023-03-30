@@ -27,7 +27,7 @@ const NoteState = ({ children }) => {
             setAuthToken(data)
             setUser(jwt_decode(data.access)["username"]);
             toast.success('Logged In !!', {
-                position: "top-right",
+                // positon: "top-right",
                 autoClose: 4000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -38,7 +38,7 @@ const NoteState = ({ children }) => {
         }
         else {
             toast.error('Enter Correct Credentials !', {
-                position: "top-right",
+                // positon: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -63,7 +63,7 @@ const NoteState = ({ children }) => {
             setAuthToken(data)
             setUser(jwt_decode(data.access)["username"]);
             toast.success('Logged In !!', {
-                position: "top-right",
+                // positon: "top-right",
                 autoClose: 4000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -124,7 +124,7 @@ const NoteState = ({ children }) => {
         setAuthToken(null)
         localStorage.removeItem('authToken')
         toast.success('You were logged out !!', {
-            position: "top-right",
+            // positon: "top-right",
             autoClose: 4000,
             hideProgressBar: false,
             closeOnClick: true,
