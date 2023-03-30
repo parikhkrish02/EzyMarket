@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import PageNotFound from './components/PageNotFound';
 import UserProfilePage from './components/UserProfilePage';
-import NewBusiness from './components/NewBusiness';
+import NewBusiness from './pages/NewBusiness';
 import SignUp from './components/SignUp';
 import AuthState from './context/Auth/AuthState';
 import UserProfileState from './context/UserProfile/UserProfileState';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import ProtectedRoute from './utils/ProtectedRoute';
-import BusinessView from './components/BusinessView';
-import BusinessNearMe from './components/BusinessNearMe';
+import BusinessView from './pages/BusinessView';
+import BusinessNearMe from './pages/BusinessNearMe';
 
 const App = () => {
     return (
