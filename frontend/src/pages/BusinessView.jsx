@@ -37,7 +37,7 @@ const BusinessView = () => {
         else {
             let data = await response.json()
             toast.error(data, {
-                position: "top-right",
+                // positon: "top-right",
                 autoClose: 4000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -99,7 +99,7 @@ const BusinessView = () => {
     const decr = async (item) => {
         if (item.quantity === 0) {
             toast.error("Item can't be less than 0 !!", {
-                position: "top-right",
+                // positon: "top-right",
                 autoClose: 4000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -128,7 +128,7 @@ const BusinessView = () => {
         }
         else if (e.target.value < 0) {
             toast.error("Item can't be less than 0 !!", {
-                position: "top-right",
+                // positon: "top-right",
                 autoClose: 4000,
                 hideProgressBar: false,
                 closeOnClick: true,

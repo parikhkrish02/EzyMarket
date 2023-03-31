@@ -8,7 +8,7 @@ const Login = () => {
 	return (
 		<>
 			{user ?
-				<Navigate to="/" />
+				<Navigate to="/landing-page" />
 				:
 				<div>
 					<form onSubmit={loginUser}>
