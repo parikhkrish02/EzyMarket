@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import Profile,Business,Category,Item
+from .models import Profile,Business,Category,Item,BusinessPost
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -11,7 +11,7 @@ def index(request):
     
     user_object=User.objects.get(username=request.user.username)
     profile_object=Profile.objects.get(user=user_object)
-    business_list=profile_object.isBusiness
+    # business_list=profile_object.isBusiness
     print(profile_object.isBusiness)
     return render(request,'index.html',{'po':profile_object})
 
@@ -48,6 +48,7 @@ def login(request):
         username=request.POST['username']
         password=request.POST['password']
         
+        
         user=auth.authenticate(username=username,password=password)
         
         if user is not None:
@@ -62,12 +63,37 @@ def login(request):
 
 
 @login_required(login_url='login')
-def business_profile (request):
+def profile(request):
+    
     
     user_object=User.objects.get(username=request.user.username)
     profile_object=Profile.objects.get(user=user_object)
+       
+    a=0
+    if profile_object.isBusiness != None:
+        a=1
+        all_user_post=BusinessPost.objects.filter(user=user_object.username)
+        
+            
+    if request.method=='POST':
+        if request.POST['bio'] == '':
+            bio=profile_object.bio
+        else:
+            bio=request.POST['bio']
+            
+        
+        if request.FILES.get('img') == None:
+            img=profile_object.profileimg
+        else:
+            img=request.FILES.get('img')
+            print(img," Hello ")
+            
+        profile_object.profileimg=img
+        profile_object.bio=bio
+        profile_object.save()
+        
     
-    return render(request,'business_profile.html',{'po':profile_object})
+    return render(request,'profile.html',{'po':profile_object,'a':a,'posts':all_user_post})
 
 
 @login_required(login_url='login')
@@ -78,6 +104,7 @@ def logout(request):
 
 @login_required(login_url='login')
 def add_Bus (request):
+    
     
     if request.method=="POST":
         
@@ -99,14 +126,16 @@ def add_Bus (request):
     businessList=None
     user_object=User.objects.get(username=request.user.username)
     profile_object=Profile.objects.get(user=user_object)
+    a=0
     #print(profile_object.isBusiness.businessName)
     if profile_object.isBusiness != None:
         business_object=Business.objects.get(businessName=profile_object.isBusiness.businessName)
         businessList=business_object.categories.all()
+        a=1
     
     
     # category_all_object=Category.objects.all()
-    return render(request,'add_Bus.html',{'busList':businessList})
+    return render(request,'add_Bus.html',{'busList':businessList,'a':a})
 
 @login_required(login_url='login')
 def add_category(request):
@@ -166,3 +195,31 @@ def add_item(request):
 def list_category(request):
     pass
 
+@login_required(login_url='login')
+def search(request):
+    
+    if request.method=='POST':
+        search=request.POST['search']
+        user_objets=User.objects.filter(username__icontains=search)
+        
+        return render(request,'search.html',{'user_objs':user_objets})
+    
+    return redirect('/')
+
+
+@login_required(login_url='login')
+def uploadBPost(request):
+    
+    user_object=User.objects.get(username=request.user.username)
+    params={
+        'user':user_object
+    }
+    
+    
+    if request.method=='POST':
+        img = request.FILES.get('postimg')
+        print(img," erg ew")
+        post_object=BusinessPost.objects.create(user=user_object.username,image=img)
+        post_object.save()
+        
+    return redirect('/')

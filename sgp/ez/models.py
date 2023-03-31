@@ -14,7 +14,12 @@ class Profile(models.Model):
     isBusiness = models.ForeignKey(
         "Business", on_delete=models.CASCADE, null=True, blank=True
     )
-
+    profileimg=models.ImageField(
+        upload_to='profile_img',
+        default='default.png'
+    )
+    
+    
     def __str__(self):
         return self.user.username
 
@@ -43,3 +48,10 @@ class Item(models.Model):
 
     def __str__(self):
         return self.itemName
+    
+class BusinessPost(models.Model):
+    user = models.CharField(max_length=100)
+    image=models.ImageField(upload_to='B_Post')
+    
+    def __str__(self):
+        return self.user

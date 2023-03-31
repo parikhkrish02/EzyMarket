@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Home - {{user.username}}</title>
+        <title>search</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -17,27 +17,12 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <h2 align='center'>Welcome , {{po.user.username}}        
-                <a href="logout" >log out</a>
-                <a href="profile">Account</a>
-                <img src="{{po.profileimg.url}}">
-        </h2>
-
-        <p>{{ po.isBusiness.businessName }}</p>
-  
-
-        {% if po.isBusiness  %}
-        <button type="button"><a href="add_Bus">Edit Business</a></button>
-        <a href="">Active</a>
-        {% else %}
-        <button type="button"><a href="add_Bus">Add Business</a></button>
-        {% endif %}
-
-        <form action="search" method="POST" >{% csrf_token %}
-            <label >search:</label>
-            <input type="text" name="search">
-            <input type="submit">
-        </form>
+        
+        {% for user1 in user_objs %}
+       
+        <label>{{user1.username}}</label>
+        {% endfor %}
+        
         <script src="" async defer></script>
     </body>
 </html>

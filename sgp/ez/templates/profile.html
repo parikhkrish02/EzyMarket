@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -7,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Add Business</title>
+        <title>Account-{{po.user.username}}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -16,34 +17,21 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <form action="" method="POST">{% csrf_token%}
-            <lable >Business name:</lable>
-            <input type="text" name="business" ><br>
-            <lable >Contact Info:</lable>
-            <input type="text" name="contact"><br>
-            
-            <br>
-            <button type="button"><a href="/add_category">Add Category</a></button>
+        <form action="." method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <input type="file" name="img"><br>
+            <img src = '{{po.profileimg.url}}' alt="fuc k u" ><br>
+            <lable>bio:</lable>
+            <textarea  placeholder="{{po.bio}}" name="bio" value={{po.bio}}></textarea><hr>
             <input type="submit">
-            <div>
-                <h3>Added Categorys</h3>
-                {% for business in  busList %}
-                    <h7>{{business}}</h7><br>
-                {% endfor %}
-            </div>
         </form>
-
-        {% if a %}
+        <br>
         <div>
-            <form method='POST' action='/uploadBPost' enctype='multipart/form-data'>{% csrf_token %}
-                
-                <label for='postImg'>Upload Post</label>
-                <input type='file' name='postimg'>
-                <input type='submit'>
-
-            </form>
+            {% if a %}
+                {% for post in posts %}
+                    <img src='{{post.image.url}}'>
+                {% endfor %}
+            {% endif %}
         </div>
-        {% endif %}
         <script src="" async defer></script>
     </body>
 </html>
