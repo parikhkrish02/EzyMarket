@@ -1,16 +1,42 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import UserProfileContext from '../context/UserProfile/UserProfileContext';
+import { useNavigate } from 'react-router-dom';
 
 const Business = () => {
 
 	const { userProfile } = useContext(UserProfileContext)
 	const isNotBusiness = !userProfile?.isBusiness
 
+	const [businessName, setBusinessName] = useState('')
+	const [businessSlug, setBusinessNameSlug] = useState('')
+	const [businessCategory, setBusinessCategory] = useState('')
+	const [contactNo, setContactNo] = useState(0)
+
+	const navigate = useNavigate()
+
 	useEffect(() => {
 		if (!isNotBusiness) {
 			// Fetch data and show as inital value
 		}
 	}, [isNotBusiness])
+
+	const changeBusinessName = (e) => {
+		setBusinessName(e.target.value);
+	}
+	const changeBusinessSlug = (e) => {
+		setBusinessNameSlug(e.target.value);
+	}
+	const changeBusinessCategory = (e) => {
+		setBusinessName(e.target.value);
+	}
+	const changeContactNo = (e) => {
+		setBusinessName(e.target.value);
+	}
+
+	const submit = async () => {
+
+	}
+
 
 	return (
 		<>
@@ -44,12 +70,20 @@ const Business = () => {
 								<div
 									className="businessinfo text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline p-4">
 									<div className="mb-4">
-										<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
+										<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email" onChange={changeBusinessName}>
 											Business Name
 										</label>
 										<input
 											className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 											id="email" type="email" placeholder="Enter Business Name" />
+									</div>
+									<div className="mb-4">
+										<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email2" onChange={changeBusinessSlug}>
+											Business Slug
+										</label>
+										<input
+											className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+											id="email2" type="email2" placeholder="Enter Business Name" />
 									</div>
 
 									<label htmlFor="message" className="block mb-2 text-sm font-medium text-black">Address</label>
@@ -59,12 +93,12 @@ const Business = () => {
 									</textarea>
 
 									<div className="mb-4">
-										<label className="block mt-6 mb-2 text-sm font-bold text-gray-700" htmlFor="email">
+										<label className="block mt-6 mb-2 text-sm font-bold text-gray-700" htmlFor="Location">
 											Location
 										</label>
 										<input
 											className="w-80 px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-											id="email" type="email" placeholder="Location.." />
+											id="Location" type="Location" placeholder="Location.." />
 										<button
 											className="bg-[#186444] ml-8 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 											type="button">
@@ -76,38 +110,38 @@ const Business = () => {
 								<div
 									className="bbuscont mt-8 text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline p-4">
 									<div className="mb-4">
-										<label className="block mb-2 mt-4 text-sm font-bold text-gray-700" htmlFor="email">
+										<label className="block mb-2 mt-4 text-sm font-bold text-gray-700" htmlFor="Contact" onChange={changeContactNo}>
 											Contact Number
 										</label>
 										<input
 											className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-											id="email" type="email" placeholder="Enter Business Contact Number" />
+											id="Contact" type="Contact" placeholder="Enter Business Contact Number" />
 									</div>
 									<div className="mb-4">
-										<label className="block mb-2 mt-8 text-sm font-bold text-gray-700" htmlFor="Business email">
+										<label className="block mb-2 mt-8 text-sm font-bold text-gray-700" htmlFor="Businessemail">
 											Business Email
 										</label>
 										<input
 											className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-											id="email" type="email" placeholder="Enter Business Email" />
+											id="Businessemail" type="Businessemail" placeholder="Enter Business Email" />
 									</div>
 								</div>
 								<div
 									className="businessinfo mt-4 text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline p-4">
 									<div className="mb-4 ">
-										<label className="block mb-2 mt-4 text-sm font-bold text-gray-700" htmlFor="Business email">
-											Select Your Category
+										<label className="block mb-2 mt-4 text-sm font-bold text-gray-700" htmlFor="Category" onChange={changeBusinessCategory}>
+											Enter Business Category
 										</label>
 										<input
 											className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-											id="email" type="email" placeholder="Ex. Street Vendor, Restaurant, Cafe , Stationery, etc..." />
+											id="Category" type="Category" placeholder="Ex. Street Vendor, Restaurant, Cafe , Stationery, etc..." />
 									</div>
 
 								</div>
 
 
 								<div className=" mt-6 text-center">
-									<button
+									<button onClick={submit}
 										className="w-full mt-4 px-4 py-2 font-bold text-white bg-[#186444] rounded-full hover:bg-[#08744c] focus:outline-none focus:shadow-outline"
 										type="button">
 										{isNotBusiness ?

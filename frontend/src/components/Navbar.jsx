@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import AuthContext from '../context/Auth/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,8 +9,12 @@ const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext)
     const { userProfile } = useContext(UserProfileContext)
 
-    if (!userProfile && user) {
-        return <>Loading..</>
+    const isActiveClass = (e) => {
+        if (e?.isActive) {
+            return 'text-[#186444] underline p-2 pl-8 font-sans cursor-pointer font-bold over:subpixel-antialiased pb-5 text-base hover:text-[#08744C] ease-in-out duration-500 hover:text-lg';
+        } else {
+            return 'text-black-500 p-2 pl-8 font-sans cursor-pointer font-bold over:subpixel-antialiased pb-5 text-base hover:text-[#08744C] ease-in-out duration-500 hover:text-lg';
+        }
     }
 
     const privateButton = () => {
@@ -26,6 +30,7 @@ const Navbar = () => {
         }
     }
 
+
     return (
         <>
             <div className="flex flex-col h-screen">
@@ -36,24 +41,39 @@ const Navbar = () => {
                         </div>
                         <div className="home">
                             <ul className="flex items-stretch">
-                                <Link to="/">
-                                    <li className="p-2 pl-8 font-sans cursor-pointer font-bold over:subpixel-antialiased pb-5 text-base hover:text-[#08744C] ease-in-out duration-500 hover:text-lg">
-                                        HOME
-                                    </li></Link>
-                                <Link to="/aboutUs">
-                                    <li className="p-2 pl-8 font-sans cursor-pointer font-bold over:subpixel-antialiased pb-5 text-base hover:text-[#08744C] ease-in-out duration-500 hover:text-lg">
-                                        ABOUT US
-                                    </li></Link>
-                                <Link to="/contactUs" className="p-2 pl-8 font-sans cursor-pointer font-bold over:subpixel-antialiased pb-5 text-base hover:text-[#08744C] ease-in-out duration-500 hover:text-lg">
+
+                                <NavLink to="/" className={isActiveClass}>
+                                    HOME
+                                </NavLink>
+
+                                <NavLink to="/aboutUs" className={isActiveClass}>
+                                    ABOUT US
+                                </NavLink>
+                                <NavLink to="/contactUs" className={isActiveClass}>
                                     CONTACT US
-                                </Link>
+                                </NavLink>
                             </ul>
                         </div>
 
                         <div className="Login text-center pb-7 pr-6 font-sans font-bold text-sm flex items-end ml-auto">
-                            <Link to="/business" onClick={privateButton}><button className="rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
-                                Start Business
-                            </button></Link>
+                            {user ?
+                                (userProfile?.isBusiness) ?
+                                    <>
+                                        <Link to={`/business/${userProfile?.isBusiness?.businessNameSlug}/`} onClick={privateButton}><button className="rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
+                                            My Business
+                                        </button></Link>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to="/business" onClick={privateButton}><button className="rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
+                                            Start Business
+                                        </button></Link>
+                                    </>
+                                :
+                                <Link to="/business" onClick={privateButton}><button className="rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
+                                    Start Business
+                                </button></Link>
+                            }
                             <Link to="/business-near-by"><button className="rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
                                 Near By Business
                             </button></Link>

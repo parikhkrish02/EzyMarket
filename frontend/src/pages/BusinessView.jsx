@@ -26,6 +26,7 @@ const BusinessView = () => {
         if (response.status === 200) {
             let data = await response.json()
             setBusiness(data.isBusiness)
+            console.log(data.isBusiness);
             setIsActive(data.isBusiness.isActive)
             if (data.user.username === user) {
                 setIsOwner(true)
@@ -169,6 +170,8 @@ const BusinessView = () => {
                 :
                 ""
             }
+            <br />
+            Business Category: {business.businessCategory}
             <br />
             Contact info: {business.contactNo}
             <br />

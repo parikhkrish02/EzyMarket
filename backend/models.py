@@ -20,24 +20,24 @@ class Profile(models.Model):
 
 
 class Business(models.Model):
-    businessName = models.CharField(max_length=25)
-    businessNameSlug = models.CharField(max_length=25, null=True)
+    businessName = models.CharField(max_length=25, unique=True)
+    businessNameSlug = models.CharField(max_length=25, null=True, unique=True)
     isActive = models.BooleanField(default=False)
     contactNo = models.IntegerField()
-    # location=
-    categories = models.ManyToManyField("Category")
+    businessCategory = models.CharField(max_length=50, default="")
+    # latitude = models.CharField(max_length=100, default=0, blank=True)
+    # longitude = models.CharField(max_length=100, default=0, blank=True)
+    # location = [latitude, longitude]
+    categories = models.ManyToManyField("Category", blank=True)
 
     def __str__(self):
-        return "%s - Owned By - %s" % (
-            self.businessName,
-            Profile.objects.get(isBusiness__businessName=self.businessName),
-        )
+        return "%s - Owned By -" % (self.businessName)
 
 
 class Category(models.Model):
     categoryName = models.CharField(max_length=25)
     categoryType = models.CharField(max_length=25)
-    items = models.ManyToManyField("Item",blank=True)
+    items = models.ManyToManyField("Item", blank=True)
 
     def __str__(self):
         return self.categoryName

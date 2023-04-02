@@ -11,11 +11,11 @@ import Home from './pages/Home';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import ProtectedRoute from './utils/ProtectedRoute';
-import BusinessView from './pages/BusinessView';
 import BusinessNearMe from './pages/BusinessNearMe';
 import AboutUs from './components/AboutUs';
 import WelcomeCards from './components/WelcomeCards';
 import ContactUs from './components/ContactUs';
+import BusinessPage from './pages/BusinessPage/BusinessPage';
 
 const App = () => {
     return (
@@ -40,7 +40,8 @@ const App = () => {
                                     <Route path='/profile/:username' element={<UserProfilePage />} />
 
                                     <Route path='/business' element={<Business />} />
-                                    <Route path='/business/:businessNameSlug' element={<BusinessView />} />
+                                    <Route path='/business/:businessNameSlug' element={<BusinessPage />} />
+                                    <Route path='/business/:businessNameSlug/:page' element={<BusinessPage />} />
                                 </Route>
 
                                 <Route path='/business-near-by' element={<BusinessNearMe />} />

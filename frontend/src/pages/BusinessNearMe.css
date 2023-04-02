@@ -1,0 +1,18 @@
+.fieldset {
+    border: 2px solid transparent;
+    border-color: #186444;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 15px;
+    width: 1490px;
+}
+
+.legend {
+    margin-left: 5%;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 600;
+    color: #186444;
+}

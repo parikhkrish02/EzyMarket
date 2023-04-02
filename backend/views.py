@@ -191,3 +191,65 @@ def updateQuantity(request, itemId):
 
         else:
             return Response("No such Item Exists !!", status=400)
+
+
+@api_view(["POST"])
+def add_item(request):
+    if request.method == "POST":
+        data = request.data
+
+        if Business.objects.filter(businessNameSlug=data["businessNameSlug"]).exists():
+            business = Business.objects.get(businessNameSlug=data["businessNameSlug"])
+            item = Item.objects.create(itemName=data["item"], price=data["price"])
+            item.save()
+            category = business.categories.all().get(categoryName=data["category"])
+            cat = Category.objects.get(id=category.id)
+            cat.items.add(item)
+
+            return Response("Item Added", status=200)
+        else:
+            return Response("No such Business Exists", status=400)
+
+    else:
+        return Response("Error")
+        
+@api_view(["POST"])
+def add_item(request):
+    if request.method == "POST":
+        data = request.data
+
+        if Business.objects.filter(businessNameSlug=data["businessNameSlug"]).exists():
+            business = Business.objects.get(businessNameSlug=data["businessNameSlug"])
+            item = Item.objects.create(itemName=data["item"], price=data["price"])
+            item.save()
+            category = business.categories.all().get(categoryName=data["category"])
+            cat = Category.objects.get(id=category.id)
+            cat.items.add(item)
+
+            return Response("Item Added", status=200)
+        else:
+            return Response("No such Business Exists", status=400)
+
+    else:
+        return Response("Error")
+
+
+@api_view(["POST"])
+def add_category(request):
+    if request.method == "POST":
+        data = request.data
+
+        if Business.objects.filter(businessNameSlug=data["businessNameSlug"]).exists():
+            business = Business.objects.get(businessNameSlug=data["businessNameSlug"])
+            cat = Category.objects.create(
+                categoryName=data["categoryName"], categoryType=data["categoryType"]
+            )
+            cat.save()
+            business.categories.add(cat)
+
+            return Response("Category Added", status=200)
+        else:
+            return Response("No such Business Exists", status=400)
+
+    else:
+        return Response("Error")

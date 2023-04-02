@@ -10,11 +10,14 @@ const Login = () => {
 			{user ?
 				<Navigate to="/landing-page" />
 				:
-				<div>
+				<div className="ml-96">
 					<form onSubmit={loginUser}>
+						<br />
 						Enter Username: <input type="text" name="username" className='border' autoComplete="on" />
-						Password: <input type="password" name="password" className='border mr-3' autoComplete="on" />
-						<input type="submit" className='border-2 border-black p bg-green-700 text-white hover:bg-green-dark cursor-pointer ' />
+						<br />
+						Password: <input type="password" name="password" className='border mr-3 mt-8 mb-8' autoComplete="on" />
+						<br />
+						<input type="submit" className='border-2 border-black p-2 bg-green-700 text-white hover:bg-green-dark cursor-pointer ' />
 					</form>
 				</div>
 			}
