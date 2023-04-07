@@ -8,12 +8,10 @@ const LandingPage = () => {
     const { user } = useContext(AuthContext)
     const location = useGeoLocation()
 
-    // eslint-disable-next-line
+    /* global ol */
     const map = new ol.Map({
-        layers: [
-            // eslint-disable-next-line
+        layers: [            
             new ol.layer.Tile({
-                // eslint-disable-next-line
                 source: new ol.source.TileJSON({
                     url: 'https://api.maptiler.com/maps/hybrid/tiles.json?key=0pCtCvBN2aL4eB4nNYPy',
                     tileSize: 2048,
@@ -21,29 +19,21 @@ const LandingPage = () => {
             })
         ],
         target: 'map',
-        // eslint-disable-next-line
         view: new ol.View({
             constrainResolution: true,
-            // eslint-disable-next-line
             center: ol.proj.fromLonLat([72.8210722, 22.6010415]),
             zoom: 13
         })
     });
-    // eslint-disable-next-line
-    const layer = new ol.layer.Vector({
-        // eslint-disable-next-line
+    const layer = new ol.layer.Vector({ 
         source: new ol.source.Vector({
             features: [
-                // eslint-disable-next-line
                 new ol.Feature({
-                    // eslint-disable-next-line
                     geometry: new ol.geom.Point(ol.proj.fromLonLat([72.8210722, 22.6010415])),
                 })
             ]
         }),
-        // eslint-disable-next-line
-        style: new ol.style.Style({
-            // eslint-disable-next-line
+        style: new ol.style.Style({ 
             image: new ol.style.Icon({
                 anchor: [0.5, 1],
                 crossOrigin: 'anonymous',

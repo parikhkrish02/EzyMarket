@@ -46,6 +46,9 @@ class Category(models.Model):
 class Item(models.Model):
     itemName = models.CharField(max_length=25)
     quantity = models.IntegerField(default=0)
+    image = models.ImageField(
+        upload_to="item_image", blank=True, default="blank-profile-picture.png"
+    )
     price = models.IntegerField()
 
     def __str__(self):
