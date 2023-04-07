@@ -61,12 +61,12 @@ const BusinessNearMe = () => {
 
     return (
         <>
-            <fieldset className="fieldset">
-                <legend className="legend" id=" ">
+            <fieldset className="fieldset" id="fdset">
+                <legend className="legend" id="nearmeheading">
                     Businesses Near You
                 </legend>
 
-                <div className="flex ml-7 p-8">
+                <div className="flex ml-7 p-8" id="cardinview">
 
                     {businessNearBy.map((business) => {
                         return <div key={business.isBusiness.id} onClick={privateButton}

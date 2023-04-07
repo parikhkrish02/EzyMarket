@@ -19,10 +19,47 @@
 
 
 @media (min-width:412px){
+    #nearmeheading{
+        margin-left: 44px;
+        
+     
+    }
+    #cardinview{
+       
+        padding: 0;
+        margin-left: 20px;
+        margin-right: 20px;
+        flex-direction: column;
+        width: fit-content;
+    }
+    #fdset{
+        width: fit-content;
+    }
     
     
 
 }
 
 @media(min-width:1350px){
+    #nearmeheading{
+        margin-left: 150px;
+        
+     
+    }
+    #cardinview{
+       
+        padding: 0;
+        margin-left: 25px;
+        flex-direction: row;
+        width: fit-content;
+    }
+    #fdset{
+        width: 1500PX;
+        
+        
+        
+        ;
+    }
+    
+    
 }
