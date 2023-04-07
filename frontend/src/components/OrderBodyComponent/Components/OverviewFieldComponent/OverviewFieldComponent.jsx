@@ -14,7 +14,7 @@ const OverviewFieldComponent = () => {
           <div className={css.subTtl}>Photos</div>
           <div>
             <Link to={`photos`} className={css.menuLink}>See all Photos</Link>
-            <img src={'/icons/right-arrow.png'} className={css.rightArrowIcon} alt="right arrow" />
+            <img src={'/icons/right-arrow.png'} className={css.rightArrowIcon}  alt="right arrow" />
           </div>
         </div>
 

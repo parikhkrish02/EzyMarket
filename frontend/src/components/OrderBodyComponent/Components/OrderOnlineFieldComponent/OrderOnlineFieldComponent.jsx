@@ -182,7 +182,7 @@ const OrderOnlineFieldComponent = () => {
                   <div className={css.outerDiv}>
                     <div className={css.innerDiv}>
                       <div className={css.imgBox}>
-                        <img src={'/images/hariyalikebab.jpg'} className={css.img} alt='food item' />
+                        <img src={'/images/vgefrank.jpg'} className={css.img} alt='food item' />
                       </div>
                       <div className={css.box}>
                         <div className={css.ttl}>{item.itemName}</div>
@@ -191,14 +191,14 @@ const OrderOnlineFieldComponent = () => {
                         Quantity: {item.quantity}
                         <br />
                         {isOwner ?
-                          <button onClick={() => incr(item)}>+</button>
+                          <button className='text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white   font-medium rounded-lg text-sm pr-2 pl-2 pt-[1px] pb-[1px] text-center inline-flex items-center mr-2   dark:hover:bg-blue-500 mb-2' onClick={() => incr(item)}>Add  +</button>
                           :
                           ""
                         }
                         <br />
                         {isOwner ?
 
-                          <button onClick={() => decr(item)}>-</button>
+                          <button className='text-red-700 border border-red-700 hover:bg-red-700 hover:text-white   font-medium rounded-lg text-sm pr-2 pl-2 pt-[1px] pb-[1px] text-center inline-flex items-center mr-2   dark:hover:bg-red-500' onClick={() => decr(item)}>Remove  -</button>
                           :
                           ""
                         }

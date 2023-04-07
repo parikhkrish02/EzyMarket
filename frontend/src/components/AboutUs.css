@@ -1,0 +1,12 @@
+
+
+@media (min-width:412px){
+    #aboutus1{
+       margin-left: 0px; 
+    }
+}
+@media(min-width:1350px){
+    #aboutus1{
+        margin-left: 260px; 
+     }
+}

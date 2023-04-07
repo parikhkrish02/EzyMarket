@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './WelcomeCards.css'
 
 const WelcomeCards = () => {
 
     return (
         <>
-            <div className="flex space-x-8 mt-[40px]">
-                <div>
+            <div className="flex space-x-8 mt-[40px]" id="cards1">
+                <div id="cardone" >
                     <img alt="" src="/images/PIC1CARD.png" className="h-56 rounded-2xl max-w-xs transition duration-700 ease-in-out hover:scale-110" />
                     <p
                         className="pt-6 mb-4 text-lg font-semibold leading-6 tracking-tight text-gray-900 dark:text-black"
@@ -37,6 +38,7 @@ const WelcomeCards = () => {
 
             <div>
                 <h1
+                if
                     className="mb-4 pt-10 text-4xl font-extrabold leading-none tracking-wide text-gray-900 md:text-5xl lg:text-6xl dark:text-black"
                 >
                     Ezy
@@ -51,7 +53,8 @@ const WelcomeCards = () => {
                 </h1>
             </div>
 
-            <Link to='/business-near-by' className="mt-7 ml-8 w-[750px] relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-[#08744C] transition duration-1000 ease-out border-2 border-[#186444] rounded-full shadow-md group">
+            <Link to='/business-near-by' className="mt-7 ml-8 w-[750px] relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-[#08744C] transition duration-1000 ease-out border-2 border-[#186444] rounded-full shadow-md group" id="viewbtn"
+            >
                 <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-1000 -translate-x-full bg-[#08744C] group-hover:translate-x-0 ease">
                     <svg
                         className="w-6 h-6"

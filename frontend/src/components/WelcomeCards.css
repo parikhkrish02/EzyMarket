@@ -1,0 +1,26 @@
+
+
+@media (min-width:412px){
+    #cards1{
+       flex-direction: column;
+       margin-left: 36px;
+    }
+    #cardone{
+        margin-left: 40px;
+    }
+  #viewbtn{
+    width: 300px;
+  }
+}
+@media(min-width:1350px){
+    #cards1{
+        flex-direction: row;
+     }
+     #cardone{
+      margin-left: 0px;
+  }
+#viewbtn{
+  width: 800px;
+}
+
+}
