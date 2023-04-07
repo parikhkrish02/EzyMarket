@@ -68,7 +68,7 @@ const OrderOnlineFieldComponent = () => {
 
         return () => clearInterval(id)
       })
-    }, 1000);
+    }, 100);
 
     return () => clearInterval(id)
 
