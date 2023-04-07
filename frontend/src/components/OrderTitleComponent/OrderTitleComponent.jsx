@@ -15,7 +15,7 @@ const OrderTitleComponent = () => {
     const [owner, setOwner] = useState(null)
 
     const fetchBusiness = async () => {
-        let response = await fetch(`http://127.0.0.1:8000/api/business/${businessNameSlug}/`, {
+        let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/${businessNameSlug}/`, {
             'method': "GET",
         })
 

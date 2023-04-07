@@ -8,7 +8,7 @@ const UserProfileState = ({ children }) => {
 
     const fetchUserProfile = async () => {
         if (user) {
-            let response = await fetch(`http://127.0.0.1:8000/api/profile/${user}/`, {
+            let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/profile/${user}/`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'

@@ -40,7 +40,7 @@ const SignUp = () => {
             return;
         }
         else {
-            let response = await fetch(`http://127.0.0.1:8000/api/signUp/`, {
+            let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/signUp/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

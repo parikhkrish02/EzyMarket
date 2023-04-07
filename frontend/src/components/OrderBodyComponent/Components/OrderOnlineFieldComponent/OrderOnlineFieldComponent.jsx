@@ -27,7 +27,7 @@ const OrderOnlineFieldComponent = () => {
 
   const fetchBusiness = async () => {
 
-    let response = await fetch(`http://127.0.0.1:8000/api/business/${businessNameSlug}/`, {
+    let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/${businessNameSlug}/`, {
       'method': "GET",
     })
 
@@ -90,13 +90,13 @@ const OrderOnlineFieldComponent = () => {
   }, [itemModal, categoryModal])
 
   const toggleActive = async () => {
-    await fetch(`http://127.0.0.1:8000/api/business/${businessNameSlug}/toggleActive/`)
+    await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/${businessNameSlug}/toggleActive/`)
     setIsActive(!isActive)
     sendUpdate()
   }
 
   const incr = async (item) => {
-    await fetch(`http://127.0.0.1:8000/api/business/updateItem/${item.id}/`, {
+    await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/updateItem/${item.id}/`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -120,7 +120,7 @@ const OrderOnlineFieldComponent = () => {
       });
     }
     else {
-      await fetch(`http://127.0.0.1:8000/api/business/updateItem/${item.id}/`, {
+      await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/updateItem/${item.id}/`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

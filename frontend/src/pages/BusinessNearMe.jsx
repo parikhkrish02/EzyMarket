@@ -12,7 +12,7 @@ const BusinessNearMe = () => {
     const [loading, setLoading] = useState(false)
 
     const fetchBusiness = async () => {
-        let response = await fetch('http://192.168.182.75:8000/api/businesses-near-me/')
+        let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/businesses-near-me/`)
         if (response.status === 200) {
             let data = await response.json()
             setBusinessNearBy(data)

@@ -32,7 +32,7 @@ const EditModal = ({ setCategoryModal, businessNameSlug }) => {
             });
         }
         else {
-            let response = await fetch(`http://127.0.0.1:8000/api/business/addCategory/`, {
+            let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/addCategory/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
