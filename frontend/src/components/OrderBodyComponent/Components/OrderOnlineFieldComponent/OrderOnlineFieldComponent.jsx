@@ -68,7 +68,7 @@ const OrderOnlineFieldComponent = () => {
 
         return () => clearInterval(id)
       })
-    }, 1000);
+    }, 100);
 
     return () => clearInterval(id)
 
@@ -84,6 +84,10 @@ const OrderOnlineFieldComponent = () => {
 
     // eslint-disable-next-line
   }, [])
+
+  useEffect(() => {
+    fetchBusiness()
+  }, [itemModal, categoryModal])
 
   const toggleActive = async () => {
     await fetch(`http://127.0.0.1:8000/api/business/${businessNameSlug}/toggleActive/`)
@@ -182,7 +186,7 @@ const OrderOnlineFieldComponent = () => {
                   <div className={css.outerDiv}>
                     <div className={css.innerDiv}>
                       <div className={css.imgBox}>
-                        <img src={'/images/hariyalikebab.jpg'} className={css.img} alt='food item' />
+                        <img src={`http://127.0.0.1:8000${item.image}`} className={`${css.img} h-[130px]`} alt='food item' />
                       </div>
                       <div className={css.box}>
                         <div className={css.ttl}>{item.itemName}</div>

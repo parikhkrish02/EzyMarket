@@ -10,13 +10,27 @@ const EditModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
 
     const [item, setItem] = useState('')
     const [price, setPrice] = useState(0)
+    const [quantity, setQuantity] = useState(0)
 
+
+    // const [file, setFile] = useState();
+    // function handleChange(e) {
+    //     console.log(e.target.files);
+    //     setFile(URL.createObjectURL(e.target.files[0]));
+    // }
+
+    const changeQuantity = (e) => {
+        setQuantity(e.target.value);
+    }
     const changeItem = (e) => {
         setItem(e.target.value);
     }
     const changePrice = (e) => {
         setPrice(e.target.value);
     }
+    // const changeFile = (e) => {
+    //     setPrice(e.target.value);
+    // }
 
     const submitItem = async () => {
         if (item === '' || item === ' ') {
@@ -36,10 +50,10 @@ const EditModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ "businessNameSlug": businessNameSlug, "category": activeCategory, "item": item, "price": price })
+                body: JSON.stringify({ "businessNameSlug": businessNameSlug, "category": activeCategory, "item": item, "quantity": quantity, "price": price })
             })
 
-            let data = await response.json()
+            // let data = await response.json()
             if (response.status !== 200) {
                 toast.error(response.statusText, {
                     // positon: "top-right",
@@ -62,7 +76,6 @@ const EditModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
                     theme: "dark",
                 });
             }
-
             setItemModal(val => !val)
         }
     }
@@ -78,13 +91,23 @@ const EditModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
                 </span>
             </div>
             <div className={css.bdy}>
-                Enter Item:
-                <input type="text" className='border-2 ml-2 p-2' onChange={changeItem} />
-                <br />
-                Enter Price:
-                <input type="number" className='border-2 m-3 p-2' onChange={changePrice} defaultValue={0} />
-                <br />
-                <button onClick={submitItem} className='mt-5'>Submit</button>
+                <form>
+                    Enter Item:
+                    <input type="text" className='border-2 m-2 p-2' onChange={changeItem} />
+                    <br />
+                    Enter Quantity:
+                    <input type="number" className='border-2 m-2 p-2' onChange={changeQuantity} defaultValue={0} />
+                    <br />
+                    {/* <AddItemPhoto setAnyUpload={setAnyUpload} setFiles={setFiles} files={files} isError={isError} setIsError={setIsError} setErrorMessage={setErrorMessage} errorMessage={errorMessage} /> */}
+                    <h2>Add Image:</h2>
+                    {/* <input type="file" id="file-input" name="ImageStyle" onChange={changeFile}/>
+                    <img src={file} /> */}
+                    <br />
+                    Enter Price:
+                    <input type="number" className='border-2 m-2 p-2' onChange={changePrice} defaultValue={0} />
+                    <br />
+                    <button onClick={submitItem} className='mt-5'>Submit</button>
+                </form>
             </div>
         </div>
     </div>

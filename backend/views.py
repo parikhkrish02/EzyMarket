@@ -212,7 +212,8 @@ def add_item(request):
 
     else:
         return Response("Error")
-        
+
+
 @api_view(["POST"])
 def add_item(request):
     if request.method == "POST":
@@ -220,7 +221,9 @@ def add_item(request):
 
         if Business.objects.filter(businessNameSlug=data["businessNameSlug"]).exists():
             business = Business.objects.get(businessNameSlug=data["businessNameSlug"])
-            item = Item.objects.create(itemName=data["item"], price=data["price"])
+            item = Item.objects.create(
+                itemName=data["item"], price=data["price"], quantity=data["quantity"]
+            )
             item.save()
             category = business.categories.all().get(categoryName=data["category"])
             cat = Category.objects.get(id=category.id)
