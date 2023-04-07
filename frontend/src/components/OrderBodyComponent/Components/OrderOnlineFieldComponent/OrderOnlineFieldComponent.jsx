@@ -85,6 +85,10 @@ const OrderOnlineFieldComponent = () => {
     // eslint-disable-next-line
   }, [])
 
+  useEffect(() => {
+    fetchBusiness()
+  }, [itemModal, categoryModal])
+
   const toggleActive = async () => {
     await fetch(`http://127.0.0.1:8000/api/business/${businessNameSlug}/toggleActive/`)
     setIsActive(!isActive)
@@ -143,14 +147,17 @@ const OrderOnlineFieldComponent = () => {
   return <div className={css.outerDiv}>
     <div className='m-2'>
       <span className={css.ttl}> Status: {isActive ? <span className='bg-green-300'>In Service</span> : <span className='bg-red-200'>Current Closed</span>}</span>
-      {isOwner ?
-        <label className="relative inline-flex items-center mr-5 cursor-pointer ml-2" >
-          <input type="checkbox" value="" onClick={toggleActive} className="sr-only peer" defaultChecked={isActive} />
-          <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
-        </label>
-        :
-        ""
-      }
+      <div className='m-2'>
+        <span className={css.ttl}> Status: {isActive ? <span className='bg-green-300'>In Service</span> : <span className='bg-red-200'>Current Closed</span>}</span>
+        {isOwner ?
+          <label className="relative inline-flex items-center mr-5 cursor-pointer ml-2" >
+            <input type="checkbox" value="" onClick={toggleActive} className="sr-only peer" defaultChecked={isActive} />
+            <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+          </label>
+          :
+          ""
+        }
+      </div>
     </div>
     <div className={css.innerDiv}>
       <div className={css.leftBox}>
@@ -182,7 +189,7 @@ const OrderOnlineFieldComponent = () => {
                   <div className={css.outerDiv}>
                     <div className={css.innerDiv}>
                       <div className={css.imgBox}>
-                        <img src={'/images/vgefrank.jpg'} className={css.img} alt='food item' />
+                        <img src={`http://127.0.0.1:8000${item.image}`} className={`${css.img} h-[130px]`} alt='food item' />
                       </div>
                       <div className={css.box}>
                         <div className={css.ttl}>{item.itemName}</div>
@@ -222,5 +229,3 @@ const OrderOnlineFieldComponent = () => {
 }
 
 export default OrderOnlineFieldComponent
-
-
