@@ -48,7 +48,7 @@ const LandingPage = () => {
     }
 
     return (
-        <div>
+        <div id="landing">
             Welcome, {user}
             <br />
             <br />

@@ -159,7 +159,7 @@ const OrderOnlineFieldComponent = () => {
         }
       </div>
     </div>
-    <div className={css.innerDiv}>
+    <div className= {` flex ${css.innerDiv}`} id={css.leftright} >
       <div className={css.leftBox}>
         {business.categories.map((item) => {
           return <div key={item.id} className={css.navTab}>
@@ -180,16 +180,16 @@ const OrderOnlineFieldComponent = () => {
         <div className={css.itemsBox} id='itemsBox'>
           {business.categories.map((category) => {
 
-            return <div key={category.id}>
+            return <div key={category.id} id={css.spacy}>
 
-              <div className={css.secTtl}>{category.categoryName}</div>
+              <div className={css.secTtl} >{category.categoryName}</div>
 
               {category.items.map((item) => {
-                return <div key={item.id}>
+                return <div key={item.id} id={css.space}>
                   <div className={css.outerDiv}>
                     <div className={css.innerDiv}>
                       <div className={css.imgBox}>
-                        <img src={`http://127.0.0.1:8000${item.image}`} className={`${css.img} h-[130px]`} alt='food item' />
+                        <img src={`${process.env.React_App_BACKEND_HOST}${item.image}`} className={`${css.img} h-[130px]`} alt='food item' />
                       </div>
                       <div className={css.box}>
                         <div className={css.ttl}>{item.itemName}</div>

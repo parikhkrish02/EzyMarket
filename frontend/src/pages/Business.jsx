@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import UserProfileContext from '../context/UserProfile/UserProfileContext';
 import { useNavigate } from 'react-router-dom';
+import './Business.css'
 
 const Business = () => {
 
@@ -41,7 +42,7 @@ const Business = () => {
 	return (
 		<>
 			<div className="header shadow-lg pb-4 pt-2">
-				<img src="/images/EzyMarket.png" className="h-16 ml-[200px]" alt="" />
+				<img src="/images/EzyMarket.png" className="h-16 ml-[200px]" id="ezylogo" alt="" />
 			</div>
 
 			<div className="container mx-auto">
@@ -51,7 +52,7 @@ const Business = () => {
 
 						<div className="bg-gray-400 hidden lg:block lg:w-5/12 h-full rounded-l-lg">
 							<div className="image bg-[#08744c] h-full">
-								<img src="/images/busnereg.png" alt="" className="pt-64 pl-16" />
+								<img src="/images/busnereg.png" alt=""  className="pt-64 pl-16"  />
 								<div className="hedinginphto leading-wide text-5xl ml-28 font-semibold text-[#d8ece4]">
 									Ezy Market
 								</div>

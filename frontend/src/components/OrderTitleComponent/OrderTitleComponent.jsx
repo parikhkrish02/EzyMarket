@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
 import css from './OrderTitleComponent.module.css'
-
 import RatingUtil from '../../components/RatingUtil/RatingUtil'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -57,7 +56,7 @@ const OrderTitleComponent = () => {
                 <div className={css.specials}>{business?.businessCategory}</div>
                 <div className={css.address}>{business?.contactNo}</div>
             </div>
-            <div className={css.right}>
+            <div className={css.right} id={css.ratings}>
                 <RatingUtil rating="4.1" count="601" txt="Reviews" />
             </div>
         </div>
