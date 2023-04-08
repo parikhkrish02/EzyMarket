@@ -41,6 +41,7 @@ const OrderTitleComponent = () => {
         setLoading(true)
         fetchBusiness()
         setLoading(false)
+        // eslint-disable-next-line
     }, [])
 
 

@@ -12,7 +12,7 @@ const AddPhotosCard = () => {
       <div className={css.innerDiv}>
         <div className={css.txtDiv}>
           <div className={css.imgDiv}>
-            <img src={'/icons/photo-camera.png'} className={css.img} />
+            <img src={'/icons/photo-camera.png'} className={css.img} alt='cameraIco' />
           </div>
           <span className={css.txt}>Add Photos</span>
         </div>

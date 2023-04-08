@@ -68,7 +68,7 @@ const OrderOnlineFieldComponent = () => {
 
         return () => clearInterval(id)
       })
-    }, 100);
+    }, 1000);
 
     return () => clearInterval(id)
 
@@ -87,6 +87,7 @@ const OrderOnlineFieldComponent = () => {
 
   useEffect(() => {
     fetchBusiness()
+    // eslint-disable-next-line
   }, [itemModal, categoryModal])
 
   const toggleActive = async () => {
@@ -146,7 +147,7 @@ const OrderOnlineFieldComponent = () => {
 
   return <div className={css.outerDiv}>
     <div className='m-2'>
-      <span className={css.ttl}> Status: {isActive ? <span className='bg-green-300'>In Service</span> : <span className='bg-red-200'>Current Closed</span>}</span>
+      {/* <span className={css.ttl}> Status: {isActive ? <span className='bg-green-300'>In Service</span> : <span className='bg-red-200'>Current Closed</span>}</span> */}
       <div className='m-2'>
         <span className={css.ttl}> Status: {isActive ? <span className='bg-green-300'>In Service</span> : <span className='bg-red-200'>Current Closed</span>}</span>
         {isOwner ?

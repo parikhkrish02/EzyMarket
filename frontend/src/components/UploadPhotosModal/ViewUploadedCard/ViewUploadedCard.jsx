@@ -11,6 +11,7 @@ const ViewUploadedCard = ({ file, id, removeFromFiles, isError, setIsError, setE
             setIsError(val => { return { ...val, [id]: true } });
             setErrorMessage(val => { return { ...val, [id]: "Image size should be less then 1 mb" } });
         }
+        // eslint-disable-next-line
     }, [file])
 
     document.addEventListener("click", () => {
@@ -23,7 +24,7 @@ const ViewUploadedCard = ({ file, id, removeFromFiles, isError, setIsError, setE
         <div className={css.innerDiv}>
             <div className={isError?.[id] ? [css.imgBox, css.error]?.join(" ") : css.imgBox}>
                 <div className={css.cancelIconBox} onClick={() => removeFromFiles(id)}><img src={'/icons/multiply-cancel.png'} alt="cancel button" className={css.cancelIcon} /></div>
-                <img src={URL?.createObjectURL(file)} className={isError?.[id] ? [css.img, css.error]?.join(" ") : css.img} />
+                <img src={URL?.createObjectURL(file)} className={isError?.[id] ? [css.img, css.error]?.join(" ") : css.img} alt='img' />
                 {isError?.[id] ? <div className={css.errorTxt} title={errorMessage?.[id] && errorMessage?.[id]}>{errorMessage?.[id] && errorMessage?.[id]}</div> : ""}
             </div>
             <div className={css.messageBox}>

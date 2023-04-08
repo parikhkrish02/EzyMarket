@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import css from "./UploadPhotoCard.module.css";
 
@@ -12,6 +12,7 @@ const UploadPhotoCard = ({ setAnyUpload, files, setFiles, isError, setIsError, s
     } else {
       setAnyUpload(false);
     }
+    // eslint-disable-next-line
   }, [files]);
 
   const fileUplaod = (e) => {
@@ -28,6 +29,7 @@ const UploadPhotoCard = ({ setAnyUpload, files, setFiles, isError, setIsError, s
         if (id !== idVal) {
           return val;
         }
+        return 0;
       });
     });
 
@@ -90,7 +92,7 @@ const UploadPhotoCard = ({ setAnyUpload, files, setFiles, isError, setIsError, s
               className={css.browseInpt}
               onChange={(e) => fileUplaod(e)}
             />
-            <img src={'/images/upload-image.png'} className={css.img} alt="upload image" />
+            <img src={'/images/upload-image.png'} className={css.img} alt="upload" />
           </label>
         </div>
       </div>

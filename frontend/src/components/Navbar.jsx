@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import AuthContext from '../context/Auth/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
@@ -66,20 +66,28 @@ const Navbar = () => {
                             {user ?
                                 (userProfile?.isBusiness) ?
                                     <>
-                                        <Link to={`/business/${userProfile?.isBusiness?.businessNameSlug}/`} onClick={privateButton}><button className="rounded-xl hidden font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
+                                        <Link to="/landing-page" onClick={privateButton}><button className="hidden lg:inline-block rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
+                                            User Profile
+                                        </button></Link>
+                                        <Link to={`/business/${userProfile?.isBusiness?.businessNameSlug}/`} onClick={privateButton}><button className="rounded-xl lg:inline-block hidden font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
                                             My Business
                                         </button></Link>
                                     </>
                                     :
                                     <>
-                                        <Link to="/business" onClick={privateButton}><button className="rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br  hidden from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
+                                        <Link to="/landing-page" onClick={privateButton}><button className="hidden lg:inline-block rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
+                                            User Profile
+                                        </button></Link>
+                                        <Link to="/business" onClick={privateButton}><button className="rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br lg:inline-block  hidden from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
                                             Start Business
                                         </button></Link>
                                     </>
                                 :
-                                <Link to="/business" onClick={privateButton}><button className="hidden lg:inline-block rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
-                                    Start Business
-                                </button></Link>
+                                <>
+                                    <Link to="/business" onClick={privateButton}><button className="hidden lg:inline-block rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
+                                        Start Business
+                                    </button></Link>
+                                </>
                             }
                             <Link to="/business-near-by"><button className="hidden lg:inline-block rounded-xl  font-sans  mr-5 mt-2 bg-gradient-to-br   from-[#08744c] to-[#afe9d1] px-8 py-2 text-base font-medium text-white transition hover:shadow-lg hover:shadow-[#1d5742]/50 duration-700">
                                 Near By Business

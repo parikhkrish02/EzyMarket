@@ -7,11 +7,11 @@ const Login = () => {
 	const { user, loginUser } = useContext(AuthContext)
 
 	return (
-		<>
+		<div>
 			{user ?
 				<Navigate to="/landing-page" />
 				:
-				<div className="ml-96" id="loginform">
+				<div className="ml-96 " id="loginform">
 					<form onSubmit={loginUser}>
 						<br />
 						Enter Username: <input type="text" name="username" className='border' autoComplete="on" />
@@ -22,7 +22,7 @@ const Login = () => {
 					</form>
 				</div>
 			}
-		</>
+		</div>
 	)
 }
 
