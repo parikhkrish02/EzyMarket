@@ -215,6 +215,23 @@ def add_item(request):
 
 
 @api_view(["POST"])
+def add_business(request):
+    if request.method == "POST":
+        data = request.data
+        print(data["businessName"])
+
+        business = Business.objects.create(
+            businessName=data["businessName"],
+            businessNameSlug=data["businessNameSlug"],
+            contactNo=data["contactNo"],
+            businessCategory=data["businessCategory"],
+        )
+        business.save()
+
+        return Response("done")
+
+
+@api_view(["POST"])
 def add_item(request):
     if request.method == "POST":
         data = request.data

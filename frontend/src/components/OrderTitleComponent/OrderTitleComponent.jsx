@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
 import css from './OrderTitleComponent.module.css'
-
 import RatingUtil from '../../components/RatingUtil/RatingUtil'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +14,7 @@ const OrderTitleComponent = () => {
     const [owner, setOwner] = useState(null)
 
     const fetchBusiness = async () => {
-        let response = await fetch(`http://127.0.0.1:8000/api/business/${businessNameSlug}/`, {
+        let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/${businessNameSlug}/`, {
             'method': "GET",
         })
 
@@ -42,6 +41,7 @@ const OrderTitleComponent = () => {
         setLoading(true)
         fetchBusiness()
         setLoading(false)
+        // eslint-disable-next-line
     }, [])
 
 
@@ -57,7 +57,7 @@ const OrderTitleComponent = () => {
                 <div className={css.specials}>{business?.businessCategory}</div>
                 <div className={css.address}>{business?.contactNo}</div>
             </div>
-            <div className={css.right}>
+            <div className={css.right} id={css.ratings}>
                 <RatingUtil rating="4.1" count="601" txt="Reviews" />
             </div>
         </div>

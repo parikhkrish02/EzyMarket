@@ -40,7 +40,7 @@ const SignUp = () => {
             return;
         }
         else {
-            let response = await fetch(`http://127.0.0.1:8000/api/signUp/`, {
+            let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/signUp/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ const SignUp = () => {
                 :
                 <>
                     <form onSubmit={signUp}>
-                        <div className="bg-grey-lighter flex flex-col">
+                        <div className="bg-grey-lighter mt-12 flex flex-col">
                             <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                                 <div className="bg-black px-6 py-8 rounded shadow-md text-black w-full">
                                     <h1 className="text-white mb-8 text-3xl text-center">Sign up</h1>

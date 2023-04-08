@@ -1,4 +1,5 @@
 import React from 'react'
+import "./AboutUs.css"
 
 const AboutUs = () => {
     return (
@@ -6,7 +7,7 @@ const AboutUs = () => {
             <div id="aboutus">
                 <h1 className="mb-4 ml-6 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-[#afead2] from-[#045a3a]">About Us </span></h1>
                 <div
-                    className="mt-12 ml-48 relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-[#e9f1ee] bg-clip-border text-gray-700 shadow-md">
+                    className="mt-12 ml-48 relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-[#e9f1ee] bg-clip-border text-gray-700 shadow-md" id="aboutus1">
                     <div
                         className="relative m-0 overflow-hidden bg-transparent bg-clip-border text-gray-700 shadow-none p-3 "
                     >
@@ -47,7 +48,7 @@ const AboutUs = () => {
 
                 </div>
                 <div
-                    className="mt-12 ml-48 relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-[#e9f1ee] bg-clip-border text-gray-700 shadow-md" x >
+                    className="mt-12 ml-48 relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-[#e9f1ee] bg-clip-border text-gray-700 shadow-md" id="aboutus1" >
                     <div
                         className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none p-3 "
                     >
@@ -93,7 +94,7 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                <div className="mt-12 ml-48 relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-[#e9f1ee] bg-clip-border text-gray-700 shadow-md">
+                <div className="mt-12 ml-48 relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-[#e9f1ee] bg-clip-border text-gray-700 shadow-md" id="aboutus1">
                     <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none p-3 ">
                         <img alt="" className="rounded-xl" src="/images/arjavfina;l.jpg" />
                     </div>

@@ -6,7 +6,9 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-const EditModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
+// import UploadPhotoCard from '../UploadPhotosModal/UploadPhotos';
+
+const AddItemModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
 
     const [item, setItem] = useState('')
     const [price, setPrice] = useState(0)
@@ -45,7 +47,7 @@ const EditModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
             });
         }
         else {
-            let response = await fetch(`http://127.0.0.1:8000/api/business/addItem/`, {
+            let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/addItem/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -91,15 +93,14 @@ const EditModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
                 </span>
             </div>
             <div className={css.bdy}>
-                <form>
                     Enter Item:
                     <input type="text" className='border-2 m-2 p-2' onChange={changeItem} />
                     <br />
                     Enter Quantity:
                     <input type="number" className='border-2 m-2 p-2' onChange={changeQuantity} defaultValue={0} />
-                    <br />
-                    {/* <AddItemPhoto setAnyUpload={setAnyUpload} setFiles={setFiles} files={files} isError={isError} setIsError={setIsError} setErrorMessage={setErrorMessage} errorMessage={errorMessage} /> */}
-                    <h2>Add Image:</h2>
+                    
+                    {/* <UploadPhotoCard setAnyUpload={setAnyUpload} setFiles={setFiles} files={files} isError={isError} setIsError={setIsError} setErrorMessage={setErrorMessage} errorMessage={errorMessage} /> */}
+                    {/* <h2>Add Image:</h2> */}
                     {/* <input type="file" id="file-input" name="ImageStyle" onChange={changeFile}/>
                     <img src={file} /> */}
                     <br />
@@ -107,7 +108,6 @@ const EditModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
                     <input type="number" className='border-2 m-2 p-2' onChange={changePrice} defaultValue={0} />
                     <br />
                     <button onClick={submitItem} className='mt-5'>Submit</button>
-                </form>
             </div>
         </div>
     </div>
@@ -116,4 +116,4 @@ const EditModal = ({ setItemModal, activeCategory, businessNameSlug }) => {
     return createPortal(domObj, document.getElementById('modal'));
 }
 
-export default EditModal
+export default AddItemModal

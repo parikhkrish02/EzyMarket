@@ -12,7 +12,7 @@ const BusinessNearMe = () => {
     const [loading, setLoading] = useState(false)
 
     const fetchBusiness = async () => {
-        let response = await fetch('http://127.0.0.1:8000/api/businesses-near-me/')
+        let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/businesses-near-me/`)
         if (response.status === 200) {
             let data = await response.json()
             setBusinessNearBy(data)
@@ -61,12 +61,12 @@ const BusinessNearMe = () => {
 
     return (
         <>
-            <fieldset className="fieldset">
-                <legend className="legend">
+            <fieldset className="fieldset" id="fdset">
+                <legend className="legend" id="nearmeheading">
                     Businesses Near You
                 </legend>
 
-                <div className="flex ml-7 p-8">
+                <div className="flex ml-7 p-8" id="cardinview">
 
                     {businessNearBy.map((business) => {
                         return <div key={business.isBusiness.id} onClick={privateButton}

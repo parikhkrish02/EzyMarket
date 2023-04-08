@@ -27,7 +27,7 @@ const OrderOnlineFieldComponent = () => {
 
   const fetchBusiness = async () => {
 
-    let response = await fetch(`http://127.0.0.1:8000/api/business/${businessNameSlug}/`, {
+    let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/${businessNameSlug}/`, {
       'method': "GET",
     })
 
@@ -68,7 +68,7 @@ const OrderOnlineFieldComponent = () => {
 
         return () => clearInterval(id)
       })
-    }, 100);
+    }, 1000);
 
     return () => clearInterval(id)
 
@@ -87,16 +87,17 @@ const OrderOnlineFieldComponent = () => {
 
   useEffect(() => {
     fetchBusiness()
+    // eslint-disable-next-line
   }, [itemModal, categoryModal])
 
   const toggleActive = async () => {
-    await fetch(`http://127.0.0.1:8000/api/business/${businessNameSlug}/toggleActive/`)
+    await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/${businessNameSlug}/toggleActive/`)
     setIsActive(!isActive)
     sendUpdate()
   }
 
   const incr = async (item) => {
-    await fetch(`http://127.0.0.1:8000/api/business/updateItem/${item.id}/`, {
+    await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/updateItem/${item.id}/`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -120,7 +121,7 @@ const OrderOnlineFieldComponent = () => {
       });
     }
     else {
-      await fetch(`http://127.0.0.1:8000/api/business/updateItem/${item.id}/`, {
+      await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/updateItem/${item.id}/`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -146,17 +147,20 @@ const OrderOnlineFieldComponent = () => {
 
   return <div className={css.outerDiv}>
     <div className='m-2'>
-      <span className={css.ttl}> Status: {isActive ? <span className='bg-green-300'>In Service</span> : <span className='bg-red-200'>Current Closed</span>}</span>
-      {isOwner ?
-        <label className="relative inline-flex items-center mr-5 cursor-pointer ml-2" >
-          <input type="checkbox" value="" onClick={toggleActive} className="sr-only peer" defaultChecked={isActive} />
-          <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
-        </label>
-        :
-        ""
-      }
+      {/* <span className={css.ttl}> Status: {isActive ? <span className='bg-green-300'>In Service</span> : <span className='bg-red-200'>Current Closed</span>}</span> */}
+      <div className='m-2'>
+        <span className={css.ttl}> Status: {isActive ? <span className='bg-green-300'>In Service</span> : <span className='bg-red-200'>Current Closed</span>}</span>
+        {isOwner ?
+          <label className="relative inline-flex items-center mr-5 cursor-pointer ml-2" >
+            <input type="checkbox" value="" onClick={toggleActive} className="sr-only peer" defaultChecked={isActive} />
+            <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+          </label>
+          :
+          ""
+        }
+      </div>
     </div>
-    <div className={css.innerDiv}>
+    <div className= {` flex ${css.innerDiv}`} id={css.leftright} >
       <div className={css.leftBox}>
         {business.categories.map((item) => {
           return <div key={item.id} className={css.navTab}>
@@ -177,16 +181,16 @@ const OrderOnlineFieldComponent = () => {
         <div className={css.itemsBox} id='itemsBox'>
           {business.categories.map((category) => {
 
-            return <div key={category.id}>
+            return <div key={category.id} id={css.spacy}>
 
-              <div className={css.secTtl}>{category.categoryName}</div>
+              <div className={css.secTtl} >{category.categoryName}</div>
 
               {category.items.map((item) => {
-                return <div key={item.id}>
+                return <div key={item.id} id={css.space}>
                   <div className={css.outerDiv}>
                     <div className={css.innerDiv}>
                       <div className={css.imgBox}>
-                        <img src={`http://127.0.0.1:8000${item.image}`} className={`${css.img} h-[130px]`} alt='food item' />
+                        <img src={`${process.env.React_App_BACKEND_HOST}${item.image}`} className={`${css.img} h-[130px]`} alt='food item' />
                       </div>
                       <div className={css.box}>
                         <div className={css.ttl}>{item.itemName}</div>
@@ -195,14 +199,14 @@ const OrderOnlineFieldComponent = () => {
                         Quantity: {item.quantity}
                         <br />
                         {isOwner ?
-                          <button onClick={() => incr(item)}>+</button>
+                          <button className='text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white   font-medium rounded-lg text-sm pr-2 pl-2 pt-[1px] pb-[1px] text-center inline-flex items-center mr-2   dark:hover:bg-blue-500 mb-2' onClick={() => incr(item)}>Add  +</button>
                           :
                           ""
                         }
                         <br />
                         {isOwner ?
 
-                          <button onClick={() => decr(item)}>-</button>
+                          <button className='text-red-700 border border-red-700 hover:bg-red-700 hover:text-white   font-medium rounded-lg text-sm pr-2 pl-2 pt-[1px] pb-[1px] text-center inline-flex items-center mr-2   dark:hover:bg-red-500' onClick={() => decr(item)}>Remove  -</button>
                           :
                           ""
                         }
@@ -226,5 +230,3 @@ const OrderOnlineFieldComponent = () => {
 }
 
 export default OrderOnlineFieldComponent
-
-

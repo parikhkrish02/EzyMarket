@@ -14,6 +14,7 @@ urlpatterns = [
     path("api/profile/<str:username>/", views.userProfile, name="userProfile"),
     path("api/businesses-near-me/", views.allBusiness, name="allBusiness"),
     path("api/business/updateItem/<str:itemId>/", views.updateQuantity, name="updateQuantity"),
+    path("api/business/addBusiness/", views.add_business, name="add_business"),
     path("api/business/addItem/", views.add_item, name="add_item"),
     path("api/business/addCategory/", views.add_category, name="add_item"),
     path("api/business/<str:businessNameSlug>/", views.buisnessView, name="buisnessView"),

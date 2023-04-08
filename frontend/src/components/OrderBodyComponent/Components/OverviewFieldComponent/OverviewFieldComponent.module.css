@@ -100,7 +100,7 @@
 
 .menuLink{
     text-decoration: none;
-    color: var(--color-redish1);
+    color: #16a34a;
 }
 
 .rightArrowIcon{
@@ -108,7 +108,8 @@
     display: inline;
     width: 10px;
     height: 10px;
-    filter: invert(21%) sepia(60%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(100%);
+    color: green;
+    
 }
 
 .menuSecBdy{

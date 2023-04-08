@@ -8,7 +8,7 @@ const RatingUtil = ({rating, count, txt}) => {
       <div className={css.left}>
         <div className={css.rating}>
           <span className={css.ratingTxt}>{rating}</span>
-          <img src={'/icons/star.png'} className={css.starIcon} />
+          <img src={'/icons/star.png'} className={css.starIcon} alt='ratingstar' />
         </div>
       </div>
       <div className={css.right}>

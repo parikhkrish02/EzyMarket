@@ -28,8 +28,9 @@
 }
 
 .menuTxtActive{
-    color: var(--color-redish1);
-    border-bottom: var(--brd-redish-color-2p);
+    color: #0a8738;
+    font-weight: 600;
+    border-bottom: var(--brd-greenish-color-2p);
 }
 
 .componentsBody{

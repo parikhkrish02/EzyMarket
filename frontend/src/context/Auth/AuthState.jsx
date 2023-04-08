@@ -12,7 +12,7 @@ const NoteState = ({ children }) => {
 
     const loginUser = async (e) => {
         e.preventDefault()
-        let response = await fetch("http://127.0.0.1:8000/api/token/", {
+        let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/token/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const NoteState = ({ children }) => {
     }
 
     const afterSignUp = async (username, password) => {
-        let response = await fetch("http://127.0.0.1:8000/api/token/", {
+        let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/token/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -78,7 +78,7 @@ const NoteState = ({ children }) => {
     }
 
     const updateToken = async () => {
-        let response = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
+        let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/token/refresh/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

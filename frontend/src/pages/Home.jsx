@@ -1,5 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import './Home.css'
 
 const Home = () => {
 
@@ -8,7 +9,7 @@ const Home = () => {
             <main className="flex-1 overflow-y-auto p-5">
                 <div className="grid grid-rows-1 grid-flow-col gap-4 flex-1 overflow-y-hidden">
 
-                    <div className="flex one h-screen border-r-[3px] pt-60 sm:pl-0 lg:pl-20 sm:pr-4 lg:pr-48 font-sans font-bold text-3xl fixed hover:bg-[#faf2c8] ease-in-out duration-500 hover:text-[#186444] sm:invisible lg:visible">
+                    <div className="flex one h-screen border-r-[3px] pt-60 lg:pl-20 sm:pr-4 lg:pr-48 font-sans font-bold text-3xl fixed hover:bg-[#faf2c8] ease-in-out duration-500 hover:text-[#186444]  lg:visible" id="gm1">
                         <div>Good Morning!!</div>
 
                         <div>
@@ -19,7 +20,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div id="header" className="sdoind sm:ml-[350px] lg:ml-[605px]">
+                    <div id="header" className="sdoind ml-[605px]">
                         <Outlet />
                     </div>
 

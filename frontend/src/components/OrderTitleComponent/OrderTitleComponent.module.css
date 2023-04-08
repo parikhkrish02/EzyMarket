@@ -118,3 +118,17 @@
         justify-content: center;
     }
 }
+
+
+@media (min-width:412px){
+    #ratings{
+        margin-left: 170px;
+
+    }
+  }
+  @media(min-width:1350px){
+     #ratings{
+        margin-left: 170px;
+        
+    }
+  }
