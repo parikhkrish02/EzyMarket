@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import UserProfileContext from '../context/UserProfile/UserProfileContext';
-import { useNavigate } from 'react-router-dom';
 import './Business.css'
 
 const Business = () => {
@@ -13,12 +12,14 @@ const Business = () => {
 	const [businessCategory, setBusinessCategory] = useState('')
 	const [contactNo, setContactNo] = useState(0)
 
-	const navigate = useNavigate()
-
 	useEffect(() => {
 		if (!isNotBusiness) {
 			// Fetch data and show as inital value
 		}
+		if (businessName || businessSlug || businessCategory || contactNo) {
+			console.log('Hello World');
+		}
+		// eslint-disable-next-line
 	}, [isNotBusiness])
 
 	const changeBusinessName = (e) => {
@@ -28,14 +29,24 @@ const Business = () => {
 		setBusinessNameSlug(e.target.value);
 	}
 	const changeBusinessCategory = (e) => {
-		setBusinessName(e.target.value);
+		setBusinessCategory(e.target.value);
 	}
 	const changeContactNo = (e) => {
-		setBusinessName(e.target.value);
+		setContactNo(e.target.value);
 	}
 
 	const submit = async () => {
+		console.log(businessName);
+		let response = await fetch(`${process.env.React_App_BACKEND_HOST}/api/business/addBusiness/`, {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ "businessName": businessName, "businessNameSlug": businessSlug, "contactNo": contactNo, "businessCategory": businessCategory })
+		})
+		if (response.status === 200) {
 
+		}
 	}
 
 
@@ -52,7 +63,7 @@ const Business = () => {
 
 						<div className="bg-gray-400 hidden lg:block lg:w-5/12 h-full rounded-l-lg">
 							<div className="image bg-[#08744c] h-full">
-								<img src="/images/busnereg.png" alt=""  className="pt-64 pl-16"  />
+								<img src="/images/busnereg.png" alt="" className="pt-64 pl-16" />
 								<div className="hedinginphto leading-wide text-5xl ml-28 font-semibold text-[#d8ece4]">
 									Ezy Market
 								</div>
