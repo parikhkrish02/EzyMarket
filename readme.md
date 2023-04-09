@@ -30,6 +30,10 @@ EzyMarket also improve the Business's <b>REACH</b> and helps them to easily FACI
 
 ![892224f7ca99813d2c43043b893c69632dfb2f9b](https://user-images.githubusercontent.com/95559155/230504351-37ebdd64-0b8c-47c2-b8be-cce79b07edb2.jpg)
 
+## `Landing Page`
+
+![image](https://user-images.githubusercontent.com/95559155/230784793-9eb9e6ca-5e4c-4460-b76f-15119c0b0167.png)
+
 ## `Register Business Page`
 
 ![c715c8be4f01f77e6b3b8af06fe3057d44fa8ffb](https://user-images.githubusercontent.com/95559155/230504484-38f7bbed-d4f8-47d6-a654-a7b7755365e8.jpg)
@@ -41,16 +45,17 @@ EzyMarket also improve the Business's <b>REACH</b> and helps them to easily FACI
 
 ## `Business Page [Normal User View]`
 
-![9b71d73541946adf9d983893d95a8c01c14dfcfc](https://user-images.githubusercontent.com/95559155/230504661-64dde10b-9bfa-4fcc-afc2-92e70430f16e.jpg)
-![bbe7346419315359c240036d5e44d43df80887a6](https://user-images.githubusercontent.com/95559155/230504688-7f9530a1-bad0-4068-96b0-c5ec0280ecff.jpg)
+![2](https://user-images.githubusercontent.com/95559155/230784384-5e5749c9-e6ec-4811-922f-dd04857ba40a.jpg)
+![image](https://user-images.githubusercontent.com/95559155/230784638-77e816b7-5541-41e1-b6f5-37ad9866ed62.png)
+
 
 ## `Business Page [Business Owner View]`
 
-![c1837c8da827d8c25e8eaea14df2a9fa52a24b49](https://user-images.githubusercontent.com/95559155/230504798-f8c8c747-c3ab-45a6-b233-c35b54bf5e39.jpg)
+![image](https://user-images.githubusercontent.com/95559155/230784836-7f18e2f2-5371-4482-bc9c-f1bb710d4393.png)
 
 ## `Add Photos PopUp`
 
-![30767c665512bc33de2bf329c6e28f73a48770e5](https://user-images.githubusercontent.com/95559155/230505254-7f63e2dd-53bc-43c9-bfd1-aa869f81e841.jpg)
+![image](https://user-images.githubusercontent.com/95559155/230784947-5b2d19ac-7c2b-4abc-89dc-1d0a07411f98.png)
 
 ## `Add Category PopUp`
 
