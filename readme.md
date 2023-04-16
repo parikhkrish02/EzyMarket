@@ -1,6 +1,6 @@
 <h1>EzyMarket</h1>
 
-A webApp that provides its users with all Business's LIVE STATUS, changing stocks much more.
+A Dual Interface webApp that provides its users with all Business's LIVE STATUS, changing stocks much more.
 <br />
 <br />
 This enables users to search for any item (food or stationary or anything) and SAVE a lot of <b>TIME</b>.
