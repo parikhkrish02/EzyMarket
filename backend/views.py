@@ -86,7 +86,6 @@ def signUp(request):
             return Response("Credentials can't be Empty")
 
         else:
-            print(data["password"])
             User.objects.create(
                 email=data["email"],
                 username=data["username"],
@@ -218,7 +217,6 @@ def add_item(request):
 def add_business(request):
     if request.method == "POST":
         data = request.data
-        print(data["businessName"])
 
         business = Business.objects.create(
             businessName=data["businessName"],
