@@ -7,7 +7,20 @@ import io from 'socket.io-client'
 
 
 const BusinessView = () => {
-    const socket = io.connect("http://localhost:3001/")
+    useEffect(() => {
+        const socket = io.connect("http://localhost:3001")
+        io.on("connection", async (socket) => {
+            socket.on("update", () => {
+                console.log("updated");
+                fetchBusiness()
+            })
+            await longRunningOperation();
+        });
+
+        return () => {
+            socket.disconnect();
+        }
+    }, [])
 
     const { user } = useContext(AuthContext)
     const { businessNameSlug } = useParams()
@@ -52,23 +65,6 @@ const BusinessView = () => {
     const sendUpdate = () => {
         socket.emit("send_update")
     }
-
-    useEffect(() => {
-
-        let id = setInterval(() => {
-            socket.on("update", () => {
-                console.log("updated");
-                fetchBusiness()
-
-                return () => clearInterval(id)
-            })
-        }, 5000);
-
-        return () => clearInterval(id)
-
-        // eslint-disable-next-line
-    }, [socket])
-
 
     useEffect(() => {
         console.log('called');
