@@ -4,6 +4,7 @@ import AuthContext from '../context/Auth/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserProfileContext from '../context/UserProfile/UserProfileContext';
+import './customtoast.css'
 
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext)
@@ -28,10 +29,18 @@ const Navbar = () => {
                 pauseOnHover: true,
                 draggable: true,
                 theme: "dark",
+                style: {
+                    
+                    color: 'white' // Text color
+                    
+                }
+                
+                
             });
         }
         setIsNavOpen(false)
     }
+    
 
     // useEffect(() => {
     //   setIsNavOpen(false)

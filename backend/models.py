@@ -29,6 +29,7 @@ class Business(models.Model):
     # longitude = models.CharField(max_length=100, default=0, blank=True)
     # location = [latitude, longitude]
     categories = models.ManyToManyField("Category", blank=True)
+    businessPhoto = models.FileField(upload_to='item_image',default="")
 
     def __str__(self):
         return "%s - Owned By -" % (self.businessName)

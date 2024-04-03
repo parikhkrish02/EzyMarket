@@ -1,0 +1,11 @@
+/* Customizing the "i" icon color */
+
+
+/* Customizing the bar color */
+.Toastify__progress-bar {
+    background-color: green; /* Change this to the desired color */
+}
+
+.Toastify__toast-body .Toastify__toast-icon {
+    color: green; /* Change this to the desired color */
+}

@@ -44,13 +44,13 @@ const ContactUs = () => {
                                             </div>
                                         </div>
                                         <div className="grow ml-6">
-                                            <p className="font-bold mb-1">Technical support</p>
-                                            <p className="text-gray-500">support@example.com</p>
-                                            <p className="text-gray-500">+1 234-567-89</p>
+                                            <p className="font-bold mb-1">Contact Us</p>
+                                            <p className="text-gray-500">ezymarketservices@proton.me</p>
+                                            <p className="text-gray-500">+91 97142 68214</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+                                {/* <div className="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
                                     <div className="flex items-start">
                                         <div className="shrink-0">
                                             <div className="p-4 bg-[#60b192] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
@@ -68,8 +68,8 @@ const ContactUs = () => {
                                             <p className="text-gray-500">+1 234-567-89</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+                                </div> */}
+                                {/* <div className="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
                                     <div className="flex align-start">
                                         <div className="shrink-0">
                                             <div className="p-4 bg-[#60b192] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
@@ -87,8 +87,8 @@ const ContactUs = () => {
                                             <p className="text-gray-500">+1 234-567-89</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+                                </div> */}
+                                {/* <div className="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
                                     <div className="flex align-start">
                                         <div className="shrink-0">
                                             <div className="p-4 bg-[#60b192] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
@@ -106,7 +106,7 @@ const ContactUs = () => {
                                             <p className="text-gray-500">+1 234-567-89</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

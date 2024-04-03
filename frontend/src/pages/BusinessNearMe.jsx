@@ -75,7 +75,7 @@ const BusinessNearMe = () => {
                                 <div className="relative w-full">
 
                                     {/* DYNAMIC IMAGE LEFT */}
-                                    <img src="/images/2022-04-01.jpg" className="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full" alt="" />
+                                    <img src={`http://127.0.0.1:8000${business.isBusiness.businessPhoto}`}  className="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full" alt="" />
 
                                     <button
                                         className="absolute top-3 right-3 flex items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer">
