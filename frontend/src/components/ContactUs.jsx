@@ -1,4 +1,5 @@
 import React from 'react'
+import "./AboutUs.css"
 
 const ContactUs = () => {
     return (
@@ -9,7 +10,7 @@ const ContactUs = () => {
                 <section className="mb-32 text-gray-800">
                     <div className="flex justify-center">
                         <div className="text-center lg:max-w-3xl md:max-w-xl">
-                            <h2 className="text-5xl tracking-wider font-bold mb-12 mr-28 text-[#186444]">Contact Us</h2>
+                            <h2 id='headerincontactus' className="text-5xl tracking-wider font-bold mb-12 mr-28 text-[#186444]">Contact Us</h2>
                         </div>
                     </div>
 

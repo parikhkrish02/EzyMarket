@@ -1,0 +1,18 @@
+@media (max-width: 768px) {
+
+    #navhead{
+   
+         margin-top: 10px;
+
+
+    }
+    #logoezy{
+        height: 80px;
+        margin-bottom: 15px;
+    }
+  #navvbar{
+    z-index: 1000;
+     box-shadow: none;
+
+  }
+}

@@ -1,14 +1,21 @@
 
 
-@media (min-width:412px){
+/* Home.css */
+
+/* Adjustments for phone screens */
+@media (max-width: 768px) {
+
     #gm1{
-       visibility: hidden;
+    display: none;
     }
-    #header{
-        margin-left: 0px;
+    #gerin{
+        margin: 5px;
     }
+    
+  
 }
-@media(min-width:1350px){
+
+@media(max-width:1350px){
     #gm1{
         visibility: visible;
      }

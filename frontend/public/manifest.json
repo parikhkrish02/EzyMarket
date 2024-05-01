@@ -1,0 +1,17 @@
+{
+    "name": "EzyMarket",
+    "short_name": "for vendors",
+    "theme_color": "#08744c",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src":"./images/maskable.png",
+            "sizes": "460x460",
+            "type": "image/png",
+            "purpose": "any maskable" 
+        }
+    ]
+  }

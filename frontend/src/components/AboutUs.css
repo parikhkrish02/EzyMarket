@@ -1,10 +1,22 @@
 
 
-@media (min-width:412px){
+
+@media (max-width: 768px) {
+
     #aboutus1{
-       margin-left: 0px; 
-    }
-}
+        margin-left: 10px; 
+     }
+     #headerincontactus{
+        font-size: 35px;
+     }
+
+
+
+   
+   }
+   
+
+
 @media(min-width:1350px){
     #aboutus1{
         margin-left: 260px; 

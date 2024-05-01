@@ -7,7 +7,7 @@ const WelcomeCards = () => {
     return (
         <>
             <div className="flex space-x-8 mt-[40px]" id="cards1">
-                <div id="cardone" >
+                <div id="cardone"  >
                     <img alt="" src="/images/PIC1CARD.png" className="h-56 rounded-2xl max-w-xs transition duration-700 ease-in-out hover:scale-110" />
                     <p
                         className="pt-6 mb-4 text-lg font-semibold leading-6 tracking-tight text-gray-900 dark:text-black"
@@ -17,7 +17,7 @@ const WelcomeCards = () => {
                     </p>
                 </div>
 
-                <div>
+                <div id="cardone1" > 
                     <img alt="" src="/images/PIC2crad.png" className="h-56 rounded-2xl max-w-xs transition duration-700 ease-in-out hover:scale-110" />
                     <p
                         className="pt-6 mb-4 text-lg font-semibold leading-6 tracking-tight text-gray-900 dark:text-black"
@@ -37,7 +37,7 @@ const WelcomeCards = () => {
             </div>
 
             <div>
-                <h1
+                <h1 id='bthead1'
                 if
                     className="mb-4 pt-10 text-4xl font-extrabold leading-none tracking-wide text-gray-900 md:text-5xl lg:text-6xl dark:text-black"
                 >
@@ -46,7 +46,7 @@ const WelcomeCards = () => {
                 </h1>
                 <h1
                     className="mb-4 text-xl font-normal leading-none tracking-wide text-gray-900 dark:text-black"
-                >
+                id="bthead">
                     Things gonna be<span> </span>
                     <p className="text-[#186444] inline-block">easy</p>
                     <span> </span> with us. Save your Time.
@@ -55,7 +55,7 @@ const WelcomeCards = () => {
 
             <Link to='/business-near-by' className="mt-7 ml-8 w-[750px] relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-[#08744C] transition duration-1000 ease-out border-2 border-[#186444] rounded-full shadow-md group" id="viewbtn"
             >
-                <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-1000 -translate-x-full bg-[#08744C] group-hover:translate-x-0 ease">
+                <span id='btbt' className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-1000 -translate-x-full bg-[#08744C] group-hover:translate-x-0 ease">
                     <svg
                         className="w-6 h-6"
                         fill="none"
@@ -71,7 +71,7 @@ const WelcomeCards = () => {
                         ></path>
                     </svg>
                 </span>
-                <span className="absolute flex items-center justify-center w-full h-full text-[#08744C] transition-all duration-300 transform group-hover:translate-x-full ease font-sans tracking-wider text-lg">View NearBy Businesses</span>
+                <span className="absolute flex items-center justify-center w-full h-full text-[#08744C] transition-all duration-300 transform group-hover:translate-x-full ease font-sans tracking-wider text-lg" id='btbt'>View NearBy Businesses</span>
                 <span className="relative invisible">Button Text</span>
             </Link>
         </>

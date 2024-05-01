@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserProfileContext from '../context/UserProfile/UserProfileContext';
 import './customtoast.css'
-
+import './navbar.css'
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext)
     const { userProfile } = useContext(UserProfileContext)
@@ -49,14 +49,16 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="flex flex-col h-screen">
-                <header className="w-full navbar shadow-lg items-end fixed">
+            <div className="flex flex-col h-screen" id='navvbar'>
+                <header id="navhead" className="w-full navbar shadow-lg items-end fixed">
                     <div className="flex  relative items-center mt-4">
                         <div className="image">
-                            <Link to="/"><img className="h-20 pl-10 pb-3" src="/images/EZY (6).png" alt="" /></Link>
+                            <Link to="/"><img id="logoezy"className="h-20 pl-10 pb-3" src="/images/EZY (6).png" alt="" /></Link>
                         </div>
                         <div className="home ">
                             <ul className="hidden lg:flex lg:items-stretch">
+
+                                
 
                                 <NavLink to="/" className={isActiveClass}>
                                     HOME

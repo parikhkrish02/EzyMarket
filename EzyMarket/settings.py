@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-nfc397r=9$8--__)ba+@qj5j_!-be1z%o)c419@-l11-c-o(bn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.182.75", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["192.168.182.75", "localhost", "127.0.0.1", "192.168.56.1", "172.20.10.7", "192.168.29.43"]
 
 
 # Application definition

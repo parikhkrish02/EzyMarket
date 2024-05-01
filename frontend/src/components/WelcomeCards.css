@@ -1,17 +1,48 @@
 
+@media (max-width: 768px) {
 
-@media (min-width:412px){
-    #cards1{
-       flex-direction: column;
-       margin-left: 36px;
-    }
-    #cardone{
-        margin-left: 40px;
-    }
-  #viewbtn{
-    width: 300px;
-  }
+ #cards1{
+ 
+  flex-direction: column;
+  margin: 40px;
+  margin-left: 2px;
+  
+ }
+
+ #cardone{
+
+    margin-left: 30px;
+    margin-bottom: 30px;
+ }
+ #cardone1{
+
+  
+    margin-bottom: 30px;
+ }
+
+ #bthead{
+  font-size: 13px;
+  margin: 10px;
+ }
+#bthead1{
+ 
+margin: 10px; }
+
+
+
+#viewbtn{
+ width: 280px;
+ font-size: 10px;
+ margin-bottom: 10px;
 }
+
+}
+
+
+
+
+
+
 @media(min-width:1350px){
     #cards1{
         flex-direction: row;

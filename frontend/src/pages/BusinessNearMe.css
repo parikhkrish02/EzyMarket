@@ -18,27 +18,54 @@
 }
 
 
-@media (min-width:412px){
-    #nearmeheading{
-        margin-left: 44px;
-        
-     
-    }
+
+
+
+@media (max-width: 768px) {
+
+        #nearmeheading{
+            font-size: 20px;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+        #fdset{
+            
+            width: 350px;
+            margin-top: 40px;
+           
+        }
+
     #cardinview{
-       
-        padding: 0;
-        margin-left: 20px;
-        margin-right: 20px;
         flex-direction: column;
         width: fit-content;
+        margin: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        
     }
-    #fdset{
-        width: fit-content;
-    }
-    
-    
 
-}
+
+
+   
+   }
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media(min-width:1350px){
     #nearmeheading{
