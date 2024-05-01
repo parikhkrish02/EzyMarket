@@ -16,7 +16,7 @@ const AboutUs = () => {
                     <div className="p-6">
                         <span className="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"></span>
                         <p className="mb-3 text-gray-900 text-3xl first-line:uppercase first-line:tracking-widest first-letter:text-7xl fifth-letter:text-7xl first-letter:font-bold first-letter:text-[#186444] first-letter:mr-3 first-letter:float-left">Divy Jani </p>
-                        <p className="mt-12 ml-2 text-gray-600">Front-End Development.</p>
+                        <p className="mt-12 ml-2 text-gray-600">Front-End Designer.</p>
 
                     </div>
                     <div className="flex items-center justify-between mr-16 p-6">
@@ -59,7 +59,7 @@ const AboutUs = () => {
                             className="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
                         ></span>
                         <p className="mb-3 text-gray-900 text-3xl first-line:uppercase first-line:tracking-widest first-letter:text-7xl fifth-letter:text-7xl first-letter:font-bold first-letter:text-[#186444] first-letter:mr-3 first-letter:float-left">Krish Parikh </p>
-                        <p className="mt-12 ml-2 text-gray-600">The Middle Man</p>
+                        <p className="mt-12 ml-2 text-gray-600">WebSockets</p>
                     </div>
                     <div className="flex items-center justify-between mr-16  p-6">
                         <div className="flex items-center -space-x-3"></div>
@@ -156,7 +156,7 @@ const AboutUs = () => {
                     <div className="p-6">
                         <span className="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"></span>
                         <p className="mb-3 text-gray-900 text-3xl first-line:uppercase first-line:tracking-widest first-letter:text-7xl fifth-letter:text-7xl first-letter:font-bold first-letter:text-[#186444] first-letter:mr-3 first-letter:float-left">Vishva Desai</p>
-                        <p className="mt-12 ml-2 text-gray-600">Front-End Development.</p>
+                        <p className="mt-12 ml-2 text-gray-600">Back-End Development.</p>
 
                     </div>
                     <div className="flex items-center justify-between mr-16 p-6">

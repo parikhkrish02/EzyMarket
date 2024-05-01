@@ -86,11 +86,16 @@ def signUp(request):
             return Response("Credentials can't be Empty")
 
         else:
-            User.objects.create(
+            user = User.objects.create(
                 email=data["email"],
                 username=data["username"],
                 password=make_password(data["password"]),
-            ).save()
+            )
+            user.save()
+            profile = Profile.objects.create(
+                user=User.objects.get(username=data["username"])
+            )
+            profile.save()
 
     return Response("User Signed In")
 
